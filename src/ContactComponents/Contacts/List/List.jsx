@@ -9,7 +9,7 @@ export default class List extends Component {
   render() {
     return (
       <ul className="wrapper__list">
-        {this.props.contacts.length > 0 &&
+        {this.props.contacts.length > 0 ?
           this.props.contacts.map((item) => (
             <Item
               key={item.id}
@@ -19,7 +19,7 @@ export default class List extends Component {
               phone={item.phone}
               onClick={this.props.onClick}
             />
-          ))}
+          )): ""}
       </ul>
     );
   }
