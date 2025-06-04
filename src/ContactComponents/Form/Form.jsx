@@ -98,7 +98,9 @@ export default class Form extends Component {
       <article className="wrapper__article">
         <h1 className="wrapper__title">Phonebook</h1>
         <form
-          className={`wrapper__form${this.state.alreadyInContact ? " already" : ""}`}
+          className={`wrapper__form${
+            this.state.alreadyInContact ? " already" : ""
+          }`}
           onSubmit={(e) => {
             e.preventDefault();
             this.handleSumitForm();

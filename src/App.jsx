@@ -103,21 +103,29 @@ export default class App extends Component {
   };
 
   handleFindContact = () => {
-    return (
-      (this.state.contacts.find((item) =>
-        item.name
-          .toLowerCase()
-          .includes(this.state.inputsValues.name.toLowerCase())
-      ) !== undefined &&
-        this.state.contacts.find((item) =>
-          item.surname
+    if (
+      this.state.inputsValues.name.length === 0 &&
+      this.state.inputsValues.surname.length === 0 &&
+      this.state.inputsValues.phone.length === 0
+    ) {
+      return false;
+    } else {
+      return (
+        (this.state.contacts.find((item) =>
+          item.name
             .toLowerCase()
-            .includes(this.state.inputsValues.surname.toLowerCase())
-        ) !== undefined) ||
-      this.state.contacts.find((item) =>
-        item.phone.includes(this.state.inputsValues.phone)
-      ) !== undefined
-    );
+            .includes(this.state.inputsValues.name.toLowerCase())
+        ) !== undefined &&
+          this.state.contacts.find((item) =>
+            item.surname
+              .toLowerCase()
+              .includes(this.state.inputsValues.surname.toLowerCase())
+          ) !== undefined) ||
+        this.state.contacts.find((item) =>
+          item.phone.includes(this.state.inputsValues.phone)
+        ) !== undefined
+      );
+    }
   };
 
   checkFilterContacts = (value) => {
