@@ -70,8 +70,8 @@ body {
     }
 
     & * {
-
-      transition: all ease-in-out 0.15s, opacity ease-in-out 0.3s, transform ease-in-out 0.6s !important;
+      transition: all ease-in-out 0.15s, opacity ease-in-out 0.3s,
+        transform ease-in-out 0.6s !important;
     }
 
     &.already {
@@ -153,6 +153,7 @@ body {
       border-radius: 8px;
       padding-block: 9px;
       transition: background-color ease-in-out 0.15s, color ease-in-out 0.15s;
+      cursor: pointer;
 
       &:hover {
         color: #ffffffa0;
@@ -191,10 +192,41 @@ body {
     gap: 7px 3px;
     position: relative;
     text-align: center;
+    overflow: hidden;
+    background-color: #242424;
+    transition: all ease-in-out 0.15s;
+
+    
   }
 
   &__item-button {
     position: absolute;
+    top: 3px;
+    right: 1px;
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+
+    &::after,
+    &::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      background-color: #cf0000;
+      width: 20px;
+      height: 2px;
+      border-radius: 1px;
+    }
+
+    &::after {
+      transform: translate(-50%, -50%) rotate(45deg);
+    }
+
+    &::before {
+      transform: translate(-50%, -50%) rotate(-45deg);
+    }
   }
 
   &__item-span {
